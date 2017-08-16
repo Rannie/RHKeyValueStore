@@ -14,6 +14,8 @@
 		25E2FEF31F4437B600473133 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25E2FEF21F4437B600473133 /* Assets.xcassets */; };
 		25E2FEF61F4437B600473133 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25E2FEF41F4437B600473133 /* LaunchScreen.storyboard */; };
 		25E2FF011F4437B600473133 /* KVStoreDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E2FF001F4437B600473133 /* KVStoreDemoTests.m */; };
+		25E2FF0E1F4438E800473133 /* RHKeyValueStore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 25E2FF0D1F4438E800473133 /* RHKeyValueStore.mm */; };
+		A4A6CA479154BD16FFDF7616 /* libPods-KVStoreDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4AE93A6B143860FF1B175F0 /* libPods-KVStoreDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,11 @@
 		25E2FEFC1F4437B600473133 /* KVStoreDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KVStoreDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E2FF001F4437B600473133 /* KVStoreDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVStoreDemoTests.m; sourceTree = "<group>"; };
 		25E2FF021F4437B600473133 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25E2FF0C1F4438E800473133 /* RHKeyValueStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHKeyValueStore.h; sourceTree = "<group>"; };
+		25E2FF0D1F4438E800473133 /* RHKeyValueStore.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RHKeyValueStore.mm; sourceTree = "<group>"; };
+		57E4CCEEA6665066984A5AE2 /* Pods-KVStoreDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVStoreDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVStoreDemo/Pods-KVStoreDemo.release.xcconfig"; sourceTree = "<group>"; };
+		A4AE93A6B143860FF1B175F0 /* libPods-KVStoreDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVStoreDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1BEB5C48A556A2E95A89DA7 /* Pods-KVStoreDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVStoreDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVStoreDemo/Pods-KVStoreDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A6CA479154BD16FFDF7616 /* libPods-KVStoreDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +68,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1709A5FA547F1839AEBA5D53 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1BEB5C48A556A2E95A89DA7 /* Pods-KVStoreDemo.debug.xcconfig */,
+				57E4CCEEA6665066984A5AE2 /* Pods-KVStoreDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		25E2FEDA1F4437B600473133 = {
 			isa = PBXGroup;
 			children = (
+				25E2FF0B1F44388300473133 /* RHKeyValueStore */,
 				25E2FEE51F4437B600473133 /* KVStoreDemo */,
 				25E2FEFF1F4437B600473133 /* KVStoreDemoTests */,
 				25E2FEE41F4437B600473133 /* Products */,
+				1709A5FA547F1839AEBA5D53 /* Pods */,
+				9F4A6839BDA0DC818247475D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +131,23 @@
 			path = KVStoreDemoTests;
 			sourceTree = "<group>";
 		};
+		25E2FF0B1F44388300473133 /* RHKeyValueStore */ = {
+			isa = PBXGroup;
+			children = (
+				25E2FF0C1F4438E800473133 /* RHKeyValueStore.h */,
+				25E2FF0D1F4438E800473133 /* RHKeyValueStore.mm */,
+			);
+			path = RHKeyValueStore;
+			sourceTree = "<group>";
+		};
+		9F4A6839BDA0DC818247475D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4AE93A6B143860FF1B175F0 /* libPods-KVStoreDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25E2FF051F4437B600473133 /* Build configuration list for PBXNativeTarget "KVStoreDemo" */;
 			buildPhases = (
+				C2BC659E5FACE2E3E91E6E74 /* [CP] Check Pods Manifest.lock */,
 				25E2FEDF1F4437B600473133 /* Sources */,
 				25E2FEE01F4437B600473133 /* Frameworks */,
 				25E2FEE11F4437B600473133 /* Resources */,
+				55904AE373CF45462D1D29F5 /* [CP] Embed Pods Frameworks */,
+				DBCF4CA3E4C147D71971EC5D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -208,12 +248,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		55904AE373CF45462D1D29F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KVStoreDemo/Pods-KVStoreDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2BC659E5FACE2E3E91E6E74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DBCF4CA3E4C147D71971EC5D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KVStoreDemo/Pods-KVStoreDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		25E2FEDF1F4437B600473133 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				25E2FEEE1F4437B600473133 /* ViewController.m in Sources */,
+				25E2FF0E1F4438E800473133 /* RHKeyValueStore.mm in Sources */,
 				25E2FEEB1F4437B600473133 /* AppDelegate.m in Sources */,
 				25E2FEE81F4437B600473133 /* main.m in Sources */,
 			);
@@ -349,6 +438,7 @@
 		};
 		25E2FF061F4437B600473133 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1BEB5C48A556A2E95A89DA7 /* Pods-KVStoreDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = KVStoreDemo/Info.plist;
@@ -360,6 +450,7 @@
 		};
 		25E2FF071F4437B600473133 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57E4CCEEA6665066984A5AE2 /* Pods-KVStoreDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = KVStoreDemo/Info.plist;
@@ -412,6 +503,7 @@
 				25E2FF071F4437B600473133 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25E2FF081F4437B600473133 /* Build configuration list for PBXNativeTarget "KVStoreDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +512,7 @@
 				25E2FF0A1F4437B600473133 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
