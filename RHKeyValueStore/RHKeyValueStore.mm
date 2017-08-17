@@ -7,7 +7,12 @@
 //
 
 #import "RHKeyValueStore.h"
-#import <WCDB.h>
+
+#if __has_include(<WCDB/WCDB.h>)
+#import <WCDB/WCDB.h>
+#else
+#import "WCDB.h"
+#endif
 
 #define KVStoreModule @"[RHKeyValueStore]:"
 

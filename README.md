@@ -1,6 +1,8 @@
 # RHKeyValueStore
 Key-Value storage tool,based on WCDB (WeChat DataBase).
 
+About WCDB : [Tencent/WCDB](https://github.com/Tencent/wcdb) , [微信WCDB进化之路 - 开源与开始](https://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ%3D%3D&mid=2649286603&idx=1&sn=d243dd27f2c6614631241cd00570e853&chksm=8334c349b4434a5fd81809d656bfad6072f075d098cb5663a85823e94fc2363edd28758ab882&mpshare=1&scene=1&srcid=0609GLAeaGGmI4zCHTc2U9ZX)
+
 ### Installation
 ---
 
