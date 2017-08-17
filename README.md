@@ -5,7 +5,7 @@ About WCDB : [Tencent/WCDB](https://github.com/Tencent/wcdb) , [微信WCDB进化
 
 ### Installation
 ---
-Add `pod 'RHKeyValueStore'` to your Podfile and run `pod install`.
+Add `pod 'RHKeyValueStore'` to your Podfile and run `pod install`. <br/>
 Import \<RHKeyValueStore.h\>.
 
 ### Usage
