@@ -441,7 +441,9 @@
 			baseConfigurationReference = E1BEB5C48A556A2E95A89DA7 /* Pods-KVStoreDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = KVStoreDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ran.KVStoreDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -453,7 +455,9 @@
 			baseConfigurationReference = 57E4CCEEA6665066984A5AE2 /* Pods-KVStoreDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = KVStoreDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ran.KVStoreDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
