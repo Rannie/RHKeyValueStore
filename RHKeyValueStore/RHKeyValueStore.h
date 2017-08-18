@@ -14,48 +14,177 @@
 
 @interface RHKeyValueStore : NSObject
 
-/// 数据库路径
+/**
+ Database path.
+ */
 @property (nonatomic, strong, readonly) NSString *path;
 
-/// 全局 KV 存储
+
+/**
+ Global key value storage instance.
+
+ @return store instance
+ */
 + (instancetype)store;
-/// 隔离数据 KV 存储 (如果 label 为 nil，则返回全局 store)
+
+/**
+ Isolation storage.
+
+ @param label isolating string
+ @return store instance
+ */
 + (instancetype)storeWithLabel:(NSString *)label;
 
 - (instancetype)init NS_UNAVAILABLE;
 
-/// 全部键数组
+/**
+ Get all keys.
+
+ @return key list
+ */
 - (NSArray<NSString *> *)allKeys;
-/// kv 个数
+
+/**
+ Get K-V pair count.
+ 
+ @return kv count number
+ */
 - (NSUInteger)getKVCount;
 
-/// 清空当前表所有数据
+/**
+ Clear all data of current table
+
+ @return query success or not
+ */
 - (BOOL)clear;
 
-/// default is 0
+/**
+ Get integer value for the specified key, if no data return 0.
+
+ @param key key
+ @return integer value
+ */
 - (NSInteger)integerForKey:(NSString *)key;
-- (NSInteger)integerForKey:(NSString *)key defaultValue:(NSInteger)defaultValue; // 如果查不到，返回默认值
+
+/**
+ Get integer value for the specified key, if no data return default value.
+
+ @param key key
+ @param defaultValue default result value
+ @return query success or not
+ */
+- (NSInteger)integerForKey:(NSString *)key defaultValue:(NSInteger)defaultValue;
+
+/**
+ Set integer value for the specified key.
+
+ @param value integer value
+ @param key key
+ @return insert success or not
+ */
 - (BOOL)setInteger:(NSInteger)value forKey:(NSString *)key;
 
-/// default is NO
+/**
+ Get bool value for the specified key, if no data return NO.
+
+ @param key key
+ @return query success or not
+ */
 - (BOOL)boolForKey:(NSString *)key;
+
+/**
+ Get bool value for the spcified key, if no data return default value.
+
+ @param key key
+ @param defaultValue default result value
+ @return query success or not
+ */
 - (BOOL)boolForKey:(NSString *)key defaultValue:(BOOL)defaultValue;
+
+/**
+ Set bool value for the specified key.
+ 
+ @param value bool value
+ @param key key
+ @return insert success or not
+ */
 - (BOOL)setBool:(BOOL)value forKey:(NSString *)key;
 
-/// default is 0.0
+/**
+ Get double value for the specified key, if no data return 0.0.
+ 
+ @param key key
+ @return query success or not
+ */
 - (double)doubleForKey:(NSString *)key;
+
+/**
+ Get double value for the spcified key, if no data return default value.
+ 
+ @param key key
+ @param defaultValue default result value
+ @return query success or not
+ */
 - (double)doubleForKey:(NSString *)key defaultValue:(double)defaultValue;
+
+/**
+ Set double value for the specified key.
+ 
+ @param value double value
+ @param key key
+ @return insert success or not
+ */
 - (BOOL)setDouble:(double)value forKey:(NSString *)key;
 
+/**
+ Get string value for the specified key, if no data return nil.
+ 
+ @param key key
+ @return query success or not
+ */
 - (NSString *)stringForKey:(NSString *)key;
+
+/**
+ Set string value for the specified key.
+ 
+ @param value string value
+ @param key key
+ @return insert success or not
+ */
 - (BOOL)setString:(NSString *)value forKey:(NSString *)key;
 
-/// return JSON object (array/dict...)
+/**
+ Get JSON decoded object for the specified key.
+
+ @param key key
+ @return json object (dict/array)
+ */
 - (id)jsonObjectForKey:(NSString *)key;
+
+/**
+ Set JSON encoded object for the specified key, must transfer object to json object (NSDictionary/NSArray) first.
+
+ @param value json object (dict/array)
+ @param key key
+ @return insert success or not
+ */
 - (BOOL)setJsonObject:(id)value forKey:(NSString *)key;
 
-/// get object by unarchive
+/**
+ Get object for the specified key.
+
+ @param key key
+ @return result object
+ */
 - (id)unarchiveObjectForKey:(NSString *)key;
+
+/**
+ Set object for the spcified key, object class must confirm NSCoding protocol and implement `initWithCoder:` `encodeWithCoder:` methods.
+
+ @param value object
+ @param key key
+ @return insert success or not
+ */
 - (BOOL)setArchiveObject:(id)value forKey:(NSString *)key;
 
 @end
