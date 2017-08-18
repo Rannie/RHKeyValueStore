@@ -5,5 +5,6 @@ inhibit_all_warnings!
 target :'KVStoreDemo' do
 
 pod 'WCDB'
+pod 'YYModel'
 
 end

@@ -3,6 +3,8 @@ Key-Value storage tool,based on WCDB (WeChat DataBase).
 
 About WCDB : [Tencent/WCDB](https://github.com/Tencent/wcdb) , [微信WCDB进化之路 - 开源与开始](https://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ%3D%3D&mid=2649286603&idx=1&sn=d243dd27f2c6614631241cd00570e853&chksm=8334c349b4434a5fd81809d656bfad6072f075d098cb5663a85823e94fc2363edd28758ab882&mpshare=1&scene=1&srcid=0609GLAeaGGmI4zCHTc2U9ZX)
 
+Easy KV database, can use it instead of NSUserDefault.
+
 ### Installation
 ---
 Add `pod 'RHKeyValueStore'` to your Podfile and run `pod install`. <br/>
@@ -10,6 +12,59 @@ Import \<RHKeyValueStore.h\>.
 
 ### Usage
 ---
+
+already `#define KeyValueStore [RHKeyValueStore store]`
+so you can use *KeyValuStore* to get the store instance.
+
+* Integer
+
+``` Objc
+[KeyValueStore setInteger:10 forKey:@"someInteger"];
+[KeyValueStore integerForKey:@"someInteger"];
+```
+
+* Double
+
+``` Objc
+[KeyValueStore setDouble:12.4 forKey:@"someDouble"];
+[KeyValueStore doubleForKey:@"someDouble"];
+```
+
+* Bool
+
+``` Objc
+[KeyValueStore setBool:YES forKey:@"boolean"];
+[KeyValueStore boolForKey:@"boolean"]; 
+```
+    
+* String
+
+``` Objc
+[KeyValueStore setString:@"lalal" forKey:@"onestring"];
+[KeyValueStore stringForKey:@"onestring"];
+```
+    
+* Object
+
+JSON encoding/decoding
+
+``` Objc
+TestObject *obj = [TestObject new];
+obj.host = @"github";
+obj.ipAddress = @"127.0.0.1";
+obj.count = 10;
+[KeyValueStore setJsonObject:[obj yy_modelToJSONObject] forKey:@"jsonModel"];
+    
+NSDictionary *ano = [KeyValueStore jsonObjectForKey:@"jsonModel"];
+TestObject *obj2 = [TestObject yy_modelWithDictionary:ano];
+```
+
+Archive/Unarchive (confirm NSCoding Protocol)
+
+``` Objc
+[KeyValueStore setArchiveObject:obj forKey:@"archiveObj"];
+TestObject *obj3 = [KeyValueStore unarchiveObjectForKey:@"archiveObj"];
+```
 
 ### Documentation
 ---
