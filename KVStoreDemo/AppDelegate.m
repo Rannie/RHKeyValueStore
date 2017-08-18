@@ -63,7 +63,15 @@
     [KeyValueStore setArchiveObject:obj forKey:@"archiveObj"];
     TestObject *obj3 = [KeyValueStore unarchiveObjectForKey:@"archiveObj"];
     
+    NSString *userId = @"my_user_id";
+    RHKeyValueStore *userStore = [RHKeyValueStore storeWithLabel:userId];
+    [userStore setInteger:30 forKey:@"someInteger"];
     
+    NSLog(@"global -- %zd, user -- %zd", [KeyValueStore integerForKey:@"someInteger"], [userStore integerForKey:@"someInteger"]);
+    
+    NSArray *keys = [KeyValueStore allKeys];
+    NSUInteger count = [KeyValueStore getKVCount];
+    [userStore clear];
     
     NSLog(@"%@", NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES));
     return YES;

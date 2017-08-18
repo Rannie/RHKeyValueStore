@@ -13,7 +13,7 @@ Import \<RHKeyValueStore.h\>.
 ### Usage
 ---
 
-already `#define KeyValueStore [RHKeyValueStore store]`
+Already `#define KeyValueStore [RHKeyValueStore store]` , <br/>
 so you can use *KeyValuStore* to get the store instance.
 
 * Integer
@@ -64,6 +64,31 @@ Archive/Unarchive (confirm NSCoding Protocol)
 ``` Objc
 [KeyValueStore setArchiveObject:obj forKey:@"archiveObj"];
 TestObject *obj3 = [KeyValueStore unarchiveObjectForKey:@"archiveObj"];
+```
+
+* Isolation Store
+
+Use method `+ (instancetype)storeWithLabel:(NSString *)label` to create a new table.
+
+Like:
+``` Objc
+NSString *userId = @"my_user_id";
+RHKeyValueStore *userStore = [RHKeyValueStore storeWithLabel:userId];
+[userStore setInteger:30 forKey:@"someInteger"];
+    
+NSLog(@"global -- %zd, user -- %zd", [KeyValueStore integerForKey:@"someInteger"], [userStore integerForKey:@"someInteger"]);
+```
+Console output `global -- 10, user -- 30` .
+
+* Other Methods
+
+``` Objc
+// get all keys
+NSArray *keys = [KeyValueStore allKeys];
+// get pair count
+NSUInteger count = [KeyValueStore getKVCount];
+// clear current table
+[userStore clear];
 ```
 
 ### Documentation
